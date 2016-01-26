@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Okres</title>
+
+<script type="text/javascript">
+var idInterwalu;
+var idInterwalu2;
+
+function zmienKolor() {
+  idInterwalu = setInterval(zmienKolorTekstu, 500); //ustawienie funkcji odpowiedajacej za cykliczne wywolanie
+  idInterwalu2 = setInterval(zmienKolorTlo, 600); 
+}
+
+
+function zmienKolorTekstu() {
+  var elem = document.getElementById("my_box");
+  if (elem.style.color == 'green') {
+    elem.style.color = 'orange';
+  } else {
+    elem.style.color = 'green';
+  }
+}
+
+function zatrzymajZmianeKoloru() {
+  clearInterval(idInterwalu); //zatrzymanie
+}
+
+function zmienKolorTlo() {
+  var elem = document.getElementById("tlo");
+  if (elem.style.backgroundColor == 'pink') {
+    elem.style.backgroundColor = 'yellow';
+  } else {
+    elem.style.backgroundColor = 'pink';
+  }
+}
+function zatrzymajTlo() {
+  clearInterval(idInterwalu2); //zatrzymanie
+}
+</script>
+
+</head>
+
+<body onload="zmienKolor();">
+<div id="tlo">
+<div id="my_box">
+<p>Zadania okresowe</p>
+</div>
+</div>
+<button onclick="zatrzymajZmianeKoloru();">Stop zmiana koloru</button>
+<button onclick="zmienKolorTlo();">Zmien Kolory</button>
+<button onclick="zatrzymajTlo();">Stop tlo</button>
+</body>
+</html>
